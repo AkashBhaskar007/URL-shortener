@@ -12,7 +12,7 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-// app.use(routes);
+app.use(routes);
 app.listen(process.env.PORT, (err) => {
     if (err) {
         console.log('Error ', err);

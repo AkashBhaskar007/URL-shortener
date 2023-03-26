@@ -2,7 +2,7 @@
 const mongoose = require('mongoose');
 const { messages } = require('../config');
 
-mongoose.connect('mongodb://localhost:27017/shortenurl');
+mongoose.connect(process.env.DB_CONNECTION_URI);
 
 const dbConnection = mongoose.connection;
 
