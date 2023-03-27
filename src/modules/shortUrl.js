@@ -10,7 +10,7 @@ const shortUrl = async (req, res) => {
             url: body.url,
             shortUrl: short,
         });
-        return response.success(res, messages.urlShortened, short);
+        return response.success(res, messages.urlShortened, `localhost:${process.env.PORT}/${short}`);
     } catch (error) {
         return response.serverError(res, error);
     }

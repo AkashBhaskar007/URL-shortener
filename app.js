@@ -9,7 +9,6 @@ require('./src/db/dbconfig');
 const routes = require('./src/routes');
 
 const app = express();
-app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.use(routes);
