@@ -1,4 +1,7 @@
+'use-strict';
+
 /* eslint-disable no-console */
+
 const mongoose = require('mongoose');
 const { messages } = require('../config');
 

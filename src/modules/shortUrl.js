@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-escape */
 const { messages } = require('../config');
 const { response, stringGenerator } = require('../utils');
 const URL = require('../models/url');
@@ -6,7 +7,7 @@ const shortUrl = async (req, res) => {
     try {
         const { url } = req.body;
         if (!url) return response.badRequest(res, messages.enterUrl);
-        const validateUrl = url.match(/^((https?):\/\/)?([w|W]{3}\.)+[a-zA-Z0-9\-\.]{3,}\.[a-zA-Z]{2,}(\.[a-zA-Z]{2,})?$/);
+        const validateUrl = url.match(/(https?:\/\/)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#()?&//=]*)/);
         if (!validateUrl) return response.success(res, messages.enterValidUrl);
         const urlCheck = url.split('://');
         let originalUrl = '';
