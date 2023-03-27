@@ -5,5 +5,6 @@ const messages = {
     serverRunning: 'Server is running on port',
     notFound: 'URL not found',
     enterValidUrl: 'Please enter valid URL',
+    enterUrl: 'Please enter URL',
 };
 module.exports = messages;

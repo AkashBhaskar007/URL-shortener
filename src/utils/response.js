@@ -17,7 +17,21 @@ const serverError = (res, error, message) => {
         message: message || messages.unableToProcess,
     });
 };
+const badRequest = (res, message) => {
+    res.status(httpStatusCodes.BAD_REQUEST).send({
+        status: false,
+        message,
+    });
+};
+const notFound = (res, message) => {
+    res.status(httpStatusCodes.NOT_FOUND).send({
+        status: false,
+        message,
+    });
+};
 module.exports = {
     success,
     serverError,
+    badRequest,
+    notFound,
 };
