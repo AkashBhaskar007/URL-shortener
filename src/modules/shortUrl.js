@@ -4,10 +4,19 @@ const URL = require('../models/url');
 
 const shortUrl = async (req, res) => {
     try {
-        const { body } = req;
+        const { url } = req.body;
+        const validateUrl = url.match(/^((https?):\/\/)?([w|W]{3}\.)+[a-zA-Z0-9\-\.]{3,}\.[a-zA-Z]{2,}(\.[a-zA-Z]{2,})?$/);
+        if (!validateUrl) return response.success(res, messages.enterValidUrl);
+        const urlCheck = url.split('://');
+        let originalUrl = '';
+        if (urlCheck.length <= 1) {
+            originalUrl = `${req.protocol}://${req.hostname}/${url}`;
+        } else {
+            originalUrl = url;
+        }
         const short = await stringGenerator();
         await URL.create({
-            url: body.url,
+            url: originalUrl,
             shortUrl: short,
         });
         return response.success(res, messages.urlShortened, `localhost:${process.env.PORT}/${short}`);

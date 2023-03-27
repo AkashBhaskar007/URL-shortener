@@ -7,7 +7,8 @@ const redirectUrl = async (req, res) => {
     try {
         const { shortUrl } = req.params;
         const url = await URL.findOne({ shortUrl });
-        if (!url) return response.success(res, messages.notFound);
+        console.log(url);
+        if (!url) return response.notFound(res, messages.notFound);
         const newUrl = url.url;
         res.redirect(newUrl);
     } catch (error) {

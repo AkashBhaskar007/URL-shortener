@@ -4,5 +4,6 @@ const messages = {
     mongoConnected: 'MongoDB connected successfully',
     serverRunning: 'Server is running on port',
     notFound: 'URL not found',
+    enterValidUrl: 'Please enter valid URL',
 };
 module.exports = messages;
