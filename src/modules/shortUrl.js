@@ -1,4 +1,3 @@
-/* eslint-disable no-useless-escape */
 const { messages } = require('../config');
 const { response, stringGenerator } = require('../utils');
 const URL = require('../models/url');
