@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const express = require('express');
 
 require('./src/db/dbconfig');
+const { messages } = require('./src/config');
 
 const routes = require('./src/routes');
 
@@ -16,5 +17,5 @@ app.listen(process.env.PORT, (err) => {
     if (err) {
         console.log('Error ', err);
     }
-    console.log('Server is running on port ', process.env.PORT);
+    console.log(messages.serverRunning, process.env.PORT);
 });
